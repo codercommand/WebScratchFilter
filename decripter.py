@@ -30,14 +30,15 @@ def __spliter(HTML):
 
     #deletes all \n from list
     x = 0
+    temp2 = []
     while x != len(temp):
-        if temp[x] == '\n':
-            del temp[x]
+        if temp[x] != '\n':
+            temp2.append(temp[x])
         x += 1
     del x
 
     #changes list back to string
-    for x in temp:
+    for x in temp2:
         data = data + x
 
     #returns string
