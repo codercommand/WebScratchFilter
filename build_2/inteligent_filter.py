@@ -21,7 +21,10 @@ def IN_FI(TREE, template):
     while tl != len(template['filter']):
         x = 0
         while x != len(TREE):
-            if TREE[x][0][0:template['filter'][tl][1]] == template['filter'][tl][0]:
+            #x is the position in the array, [0] is the tag in the array's
+            #array. And [:len(...)] takes a string slice from the tag so we
+            #can test to see if it matches the filter
+            if TREE[x][0][:len(template['filter'][tl])] == template['filter'][tl]:
                 datafilterd.append(TREE[x])
             x += 1
         tl += 1
@@ -30,5 +33,5 @@ def IN_FI(TREE, template):
     return datafilterd
 
 if __name__ == '__main__':
-    print(INT_filter([['p','Hello',0],['h1','World',1],['div','!',2]],
+    print(IN_FI([['p','Hello',0],['h1','World',1],['div','!',2]],
                {'filter':[['p',1],['h1',2]]}))
